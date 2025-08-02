@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مواقع الويب - Raadcode</title>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* --- Google Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
+
+        /* --- CSS Variables (Theme) --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-white: #ffffff;
+            --primary-text: #ffffff;
+            --secondary-text: #b0b0b0;
+            --accent-color: #00d4ff;
+            --accent-hover: #00b8e6;
+            --border-color: #333333;
+            --shadow-color: rgba(0, 212, 255, 0.2);
+            --tech-gradient: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+        }
+
+        /* --- General Styles & Reset --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--secondary-text);
+        }
+
+        /* --- Header --- */
+        .header {
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+        }
+
+        .logo span { 
+            background: var(--tech-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--tech-gradient);
+            color: var(--bg-color);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px var(--shadow-color);
+            color: var(--bg-color);
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 60px 0;
+            background: var(--bg-secondary);
+            margin-bottom: 60px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            background: var(--tech-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- Portfolio Grid --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .portfolio-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px var(--shadow-color);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .portfolio-content {
+            padding: 25px;
+        }
+
+        .portfolio-content h3 {
+            color: var(--primary-text);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .portfolio-content p {
+            color: var(--secondary-text);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .portfolio-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent-color);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .portfolio-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 16px;
+            background: var(--tech-gradient);
+            color: var(--bg-color);
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-link:hover {
+            transform: scale(1.05);
+            color: var(--bg-color);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Raadcode Logo" class="logo-img">
+                Raad<span>code</span>
+            </a>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i>
+                العودة للرئيسية
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>مواقع الويب</h1>
+                <p>نصمم ونطور مواقع ويب سريعة، آمنة، ومتجاوبة مع جميع الأجهزة باستخدام أحدث التقنيات والأدوات المتطورة</p>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="portfolio-section">
+            <div class="container">
+                <div class="portfolio-grid" id="websites-portfolio">
+                    <!-- Portfolio items will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sample websites portfolio items
+            const websitesPortfolio = [
+                {
+                    title: 'موقع شركة تقنية',
+                    description: 'موقع شركة متخصص في التقنية مع تصميم عصري وواجهة مستخدم متقدمة',
+                    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop',
+                    technologies: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
+                    demoLink: '#',
+                    codeLink: '#'
+                },
+                {
+                    title: 'متجر إلكتروني متكامل',
+                    description: 'منصة تجارة إلكترونية شاملة مع نظام إدارة المنتجات والطلبات',
+                    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1000&auto=format&fit=crop',
+                    technologies: ['Vue.js', 'Laravel', 'MySQL', 'Stripe'],
+                    demoLink: '#',
+                    codeLink: '#'
+                },
+                {
+                    title: 'موقع تعليمي تفاعلي',
+                    description: 'منصة تعليمية مع نظام إدارة الدورات والطلاب ومتابعة التقدم',
+                    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1000&auto=format&fit=crop',
+                    technologies: ['Angular', 'Node.js', 'MongoDB', 'Socket.io'],
+                    demoLink: '#',
+                    codeLink: '#'
+                },
+                {
+                    title: 'موقع خدمات طبية',
+                    description: 'موقع لحجز المواعيد الطبية مع نظام إدارة المرضى والأطباء',
+                    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?q=80&w=1000&auto=format&fit=crop',
+                    technologies: ['React', 'Express.js', 'PostgreSQL', 'JWT'],
+                    demoLink: '#',
+                    codeLink: '#'
+                },
+                {
+                    title: 'موقع عقاري',
+                    description: 'منصة عقارية متقدمة مع خرائط تفاعلية ونظام بحث متطور',
+                    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop',
+                    technologies: ['Vue.js', 'Django', 'PostGIS', 'Google Maps'],
+                    demoLink: '#',
+                    codeLink: '#'
+                },
+                {
+                    title: 'موقع مطعم',
+                    description: 'موقع مطعم أنيق مع نظام طلبات أونلاين وحجز الطاولات',
+                    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000&auto=format&fit=crop',
+                    technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
+                    demoLink: '#',
+                    codeLink: '#'
+                }
+            ];
+
+            function createPortfolioItem(item) {
+                const portfolioItem = document.createElement('div');
+                portfolioItem.className = 'portfolio-item';
+                
+                portfolioItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}">
+                    <div class="portfolio-content">
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                        <div class="portfolio-tech">
+                            ${item.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="${item.demoLink}" class="portfolio-link">
+                                <i class="fas fa-eye"></i>
+                                معاينة
+                            </a>
+                            <a href="${item.codeLink}" class="portfolio-link">
+                                <i class="fab fa-github"></i>
+                                الكود
+                            </a>
+                        </div>
+                    </div>
+                `;
+                
+                return portfolioItem;
+            }
+
+            // Load portfolio items
+            const portfolioGrid = document.getElementById('websites-portfolio');
+            websitesPortfolio.forEach(item => {
+                const portfolioItem = createPortfolioItem(item);
+                portfolioGrid.appendChild(portfolioItem);
+            });
+        });
+    </script>
+</body>
+</html>
+
